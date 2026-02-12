@@ -54,22 +54,10 @@ class Student : public Person {
     private:
     int rollNO;
     int* Course;
-    
-
-    // void enrollCourse() {
-
-    //     cout << "--- --- Courses are --- ---" << endl
-    //     << "Phy - LADE - Chem - CS - Eng - " << endl<< endl;
-    //     cout << "Enter the courses you want to Register (Any 3): ";
-
-    //     for (int i = 0 ; i < 3; i++) {
-    //         getline(cin ,enrolledCourses);
-    //     }
-    // }
 
     // Constructor 
     Student(string Name, int Id,string Email, int RollNo) 
-    : Person(Name,Id,Email) ,rollNO(RollNo) {};
+    : Person(Name,Id,Email) , rollNO(RollNo) {};
 
     void displayinfo() override {
         displayBasicInfo();
@@ -86,7 +74,9 @@ class Teacher : public Person {
 
     // Constructor
     Teacher(string Name, int Id,string Email, int EmpID) 
-    : Person(Name,Id,Email) , empID(EmpID) {}
+    : Person(Name,Id,Email)  {
+        empID = EmpID;
+    }
 
     void setEmpID(int EmpID) {
         empID = EmpID;
@@ -96,12 +86,43 @@ class Teacher : public Person {
         return empID;
     }
 
-    
+    void displayinfo() override {
+        displayBasicInfo();
+        cout << "Employee ID = " << empID;
+    }
 };
 
-
-
 class Course {
+    private:
+    string cname;
+    string ccode;
+    int credithrs;
+    vector<Student*> addstudent;
+
+    public:
+    Course(string CNAME, string CCODE, int Credithrs) {
+        cname = CNAME;
+        ccode = CCODE;
+        credithrs = Credithrs;
+    }
+
+    string getterCname() {
+        return cname;
+    }
+
+    string getterCcode() {
+    return ccode;
+    }
+
+    int getterCredithrs() {
+    return credithrs;
+    }
+
+    void display() {
+        cout << "Course Name = " << cname <<endl
+        << "Course Code = " << ccode << endl
+        << "Credit Hours = " << credithrs << endl;
+    }
 
 };
 
