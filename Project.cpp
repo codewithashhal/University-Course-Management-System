@@ -56,6 +56,7 @@ class Student : public Person {
     int* Course;
 
     // Constructor 
+    public:
     Student(string Name, int Id,string Email, int RollNo) 
     : Person(Name,Id,Email) , rollNO(RollNo) {};
 
@@ -68,7 +69,6 @@ class Student : public Person {
 class Teacher : public Person {
     private:
     int empID;
-    vector<Course*> assignedCourses;
 
     public:
 
@@ -127,6 +127,10 @@ class Course {
 };
 
 int main() {
-
+    Student s1("Ashhal",12345,"muhammadashhal@gmail.com",25000);
+    s1.displayinfo();
+    cout << endl << endl << endl;
+    Teacher t1("Muhammad Ashhal", 23456, "ashhalmuhammad@gmail.com", 782364);
+    t1.displayinfo();
     return 0;
 }
